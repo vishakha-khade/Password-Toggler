@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Times New Roman', Times, serif;
+        background-color: #f8f3ee;
+    }
+
+    .main-container {
+        width: 450px;
+        max-width: 90%;
+        padding: 30px;
+        background-color: bisque;
+        border: 2px solid rgb(218, 177, 177);
+        border-radius: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 15px;
+        background-color: rgb(255, 199, 130);
+        border-radius: 10px;
+    }
+
+    #user-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 16px;
+        font-family: inherit;
+        color: rgb(70, 50, 30);
+    }
+
+    #user-input::placeholder {
+        color: rgb(130, 90, 50);
+    }
+
+    #view {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+    }
+
+    #user-input::-ms-reveal {
+        display: none;
+    }
+
+    #view:hover {
+        transform: scale(1.1);
+    }
+
+    @media (max-width: 500px) {
+        .main-container {
+            padding: 20px;
+        }
+
+        #user-input {
+            font-size: 14px;
+        }
+    }
+</style>
+<body>
+    <div class="main-container">
+        <h1>Password Toggler</h1>
+        <br/>
+
+        <div class="input-container">
+
+            <input type="password" id="user-input" placeholder="Enter your password"/>
+            <img src="./eye.png" alt="view" id="view" onclick="handleEye()" />
+        </div>
+
+    </div>
+    
+    <script>
+
+      function handleEye(){
+
+        const input = document.getElementById("user-input");
+        const eye = document.getElementById("view");
+
+        if(input.type == 'password'){
+            input.type = 'text';
+            eye.src = 'visibility.png'
+        }
+        else{
+            input.type = 'password';
+            eye.src = 'eye.png';
+        }
+      }
+    </script>
+</body>
+</html>
